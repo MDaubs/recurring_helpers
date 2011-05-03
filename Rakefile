@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "recurring_helpers"
   gem.homepage = "http://github.com/mdaubs/recurring_helpers"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Give event-like models super-human recurring powers. Includes iCal export, interface helpers for recurrence rules, and view helpers for event-calendar.}
+  gem.description = %Q{Give event-like models super-human recurring powers. Includes iCal export, interface helpers for recurrence rules, and view helpers for event-calendar.}
   gem.email = "mdaubert@gmail.com"
   gem.authors = ["MDaubs"]
   # dependencies defined in Gemfile

@@ -1,6 +1,24 @@
 = recurring_helpers
 
-Description goes here.
+This is a gem intended for private consumption!  You are welcome to use it but I suggest you fork it first.  Things may suddenly and drastically change on a whime!
+
+== What's this for?
+
+Recurring_helpers is a library of various tools for dealing with recurring events.  It is essentially glue between an application's event-like model, the event-calendar gem, and the ri_cal gem.  Some of the superpowers it gives event-like models are iCal export, recurring occurrence caching, and conflict detection.  As a bonus you also get some view helpers for making it easier to deal with recurring event rules.
+
+== Setup your event-like model
+
+  class Event < ActiveModel::Base
+    # The EventOccurrence model is updated automatically when Event is saved
+    has_many :event_occurrences
+    # The EventRule model should be user-updatable, it's attributes being directly set by a user interface
+    has_many :event_rules
+    # The is_recurring macro extends Event so that when it is saved an iCal file is generated, cached into the attribute cached_ical, and the event_occurrences collection is generated based on the rules, start, and end times.  The event_occurrences collection should not be modified by the end user and treated as a read-only cache.  The purpose of this is to simplify the logic needed by event-calendar to draw a pretty calendar.  It allows event occurrences to be queried with little effort at the expense of a slightly more expensive save action.
+    is_recurring
+  end
+
+== Setup your user interface
+
 
 == Contributing to recurring_helpers
  
@@ -14,6 +32,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 MDaubs. See LICENSE.txt for
-further details.
+Copyright (c) 2011 Matthew Daubert. See LICENSE.txt for further details.
 
