@@ -57,5 +57,4 @@ class TestRecurringModel < ActiveSupport::TestCase
     assert_equal start_at + 3.days, e.event_occurrences.second.start_at
     assert_equal end_at + 3.days, e.event_occurrences.second.end_at
   end
-
 end

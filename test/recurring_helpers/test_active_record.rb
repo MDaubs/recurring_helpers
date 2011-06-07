@@ -8,7 +8,7 @@ module RecurringHelpers
       class TestClass < ::ActiveRecord::Base
         is_recurring
       end
-      assert TestClass.include? RecurringHelpers::RecurringModel
+      assert TestClass.include? RecurringHelpers::Model::Base
     end
 
   end
