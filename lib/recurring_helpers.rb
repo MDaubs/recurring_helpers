@@ -7,7 +7,9 @@ require 'recurring_helpers/rails'
 
 module RecurringHelpers
   autoload :RecurringModel, 'recurring_helpers/recurring_model'
-  autoload :ActiveRecord, 'recurring_helpers/active_record'
+  module Adapters
+    autoload :ActiveRecord, 'recurring_helpers/adapters/active_record'
+  end
 end
 
-ActiveRecord::Base.extend RecurringHelpers::ActiveRecord if ActiveRecord
+ActiveRecord::Base.extend RecurringHelpers::Adapters::ActiveRecord if ActiveRecord
